@@ -8,23 +8,23 @@ if (isset($_POST["button"])) {
   $name = trim($_POST['name']);
   $price = trim($_POST['price']);
   $type = trim($_POST['carlist']);
-  $attr = trim($_POST['attribute']);
-  echo $attr;
+  $attribute = trim($_POST['attribute']);
+  
   class Addproduct extends Database {
 
     protected $connection;
 
-    public function add($SKU, $name, $price, $attr){
+    public function add($SKU, $name, $price,$type, $attribute){
 
 
 
-      $insert = "INSERT INTO products (SKU, name, price) VALUES ('$SKU', '$name', '$price')";
+      $insert = "INSERT INTO products (SKU, name, price, type, attribute) VALUES ('$SKU', '$name', '$price', '$type', '$attribute')";
       $this->connect()->query($insert);
   }
 
   }
   $user = new Addproduct;
-  $user->add($SKU,$name,$price);
+  $user->add($SKU,$name,$price, $type, $attribute);
 
 }
 ?>

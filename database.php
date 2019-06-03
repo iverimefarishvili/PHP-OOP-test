@@ -4,8 +4,8 @@ class Database {
       $this->servername='localhost';
       $this->username='root';
       $this->password='';
-      $this->dbname='juniortest';
+      $this->dbname='juniortest'
       $connection = new mysqli($this->servername,$this->username,$this->password,$this->dbname);
       return $connection;
-    }
+   }
 }

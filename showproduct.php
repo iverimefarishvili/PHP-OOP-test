@@ -110,6 +110,7 @@ $db->show();
       <form action="showproduct.php" method="post">
       <div class="product">
         <h1>Products</h1>
+        <form action="/addproduct.php"> <button type="submit"><h3>Add Product Page</h3></button></form>
         <h2>Mass Delete Action</h2>
         <button id="delete" class="button" type="submit" name="button">Apply</button>
 
@@ -123,7 +124,8 @@ $db->show();
             <h4><?php echo $r[$i]['SKU'] ?></h4>
             <h4><?php echo $r[$i]['name'] ?></h4>
             <h4><?php echo $r[$i]['price'] ?></h4>
-            <h4>SIZE: 700mb</h4>
+            <h4><?php echo $r[$i]['type'] ?></h4>
+            <h4><?php echo $r[$i]['attribute'] ?></h4>
 
         </div>
       <?php }?>

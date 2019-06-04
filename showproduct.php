@@ -1,6 +1,4 @@
 <?php
-
-
 include_once 'database.php';
 
 class Showproduct extends Database{
@@ -17,29 +15,36 @@ class Showproduct extends Database{
         $r []=$row;
       }
     }
-    
-
+  }
+  public function delete(){
+      
     if(isset($_POST["del"])){
-    $data = array($_POST["del"]);
-    
-      
-    
-    foreach($data as $id)
-    {
-      
+      $data = array($_POST["del"]);
+
+      foreach($data as $id){
       $query = "DELETE FROM products WHERE SKU = '".$id."'";
-     
       $this->connect()->query($query);
       header('Location: showproduct.php');
       exit();
+      }
     }
-    }
+  }
 }
-}
+
 $db = new Showproduct;
 $db->show();
 
 ?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -119,7 +124,7 @@ $db->show();
         <h1>Products</h1>
         
         <h2>Mass Delete Action</h2>
-        <button id="delete" class="button" type="submit" name="button">Apply</button>
+        <button id="delete" class="button" type="submit" name="button" onclick="<?$db->delete();?>">Apply</button>
 
 
       </div>

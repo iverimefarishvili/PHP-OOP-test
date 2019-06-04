@@ -3,10 +3,7 @@
 
 include_once 'database.php';
 
-
-
   if (isset($_POST["button"])) {
-
     $SKU = trim($_POST['sku']);
     $name = trim($_POST['name']);
     $price = trim($_POST['price']);
@@ -16,28 +13,22 @@ include_once 'database.php';
     }else{
       $attribute = trim($_POST['attribute']);
     }
-    
-
-  
   class Addproduct extends Database {
-    
-
-    
-
     public function add($SKU, $name, $price,$type, $attribute){
-
-
-
       $insert = "INSERT INTO products (SKU, name, price, type, attribute) VALUES ('$SKU', '$name', '$price$', '$type', '$attribute')";
       $this->connect()->query($insert);
     }
-
   }
   $user = new Addproduct;
   $user->add($SKU,$name,$price, $type, $attribute);
 
 }
 ?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

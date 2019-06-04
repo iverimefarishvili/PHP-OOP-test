@@ -1,26 +1,36 @@
-
 <?php
+
+
 include_once 'database.php';
 
-if (isset($_POST["button"])) {
 
-  $SKU = trim($_POST['sku']);
-  $name = trim($_POST['name']);
-  $price = trim($_POST['price']);
-  $type = trim($_POST['carlist']);
-  $attribute = trim($_POST['attribute']);
+
+  if (isset($_POST["button"])) {
+
+    $SKU = trim($_POST['sku']);
+    $name = trim($_POST['name']);
+    $price = trim($_POST['price']);
+    $type = trim($_POST['carlist']);
+    if($type === 'Furniture'){
+      $attribute = trim($_POST['attribute1']) . 'x' .trim($_POST['attribute2']) . 'x' . trim($_POST['attribute3']);
+    }else{
+      $attribute = trim($_POST['attribute']);
+    }
+    
+
   
   class Addproduct extends Database {
+    
 
-    protected $connection;
+    
 
     public function add($SKU, $name, $price,$type, $attribute){
 
 
 
-      $insert = "INSERT INTO products (SKU, name, price, type, attribute) VALUES ('$SKU', '$name', '$price', '$type', '$attribute')";
+      $insert = "INSERT INTO products (SKU, name, price, type, attribute) VALUES ('$SKU', '$name', '$price$', '$type', '$attribute')";
       $this->connect()->query($insert);
-  }
+    }
 
   }
   $user = new Addproduct;
@@ -136,7 +146,7 @@ if (isset($_POST["button"])) {
           
         </div>
       </form>
-
+      <form action="./showproduct.php" method="get"> <button type="submit"><h3>Products Page</h3></button></form>
 
       <script type="text/javascript" src="app.js">
 

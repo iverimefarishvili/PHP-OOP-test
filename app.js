@@ -29,9 +29,9 @@ list.addEventListener('change', function() {
     let input = document.createElement("input");
     let input2 = document.createElement("input");
     let input3 = document.createElement("input");
-    input.setAttribute("name", "attribute");
-    input2.setAttribute("name", "attribute");
-    input3.setAttribute("name", "attribute");
+    input.setAttribute("name", "attribute1");
+    input2.setAttribute("name", "attribute2");
+    input3.setAttribute("name", "attribute3");
     input.setAttribute("placeholder", "height");
     input2.setAttribute("placeholder", "width");
     input3.setAttribute("placeholder", "length");

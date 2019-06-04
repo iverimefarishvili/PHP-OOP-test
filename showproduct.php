@@ -1,9 +1,7 @@
 <?php
+
+
 include_once 'database.php';
-
-
-  
-
 
 class Showproduct extends Database{
   public function show(){
@@ -54,6 +52,14 @@ $db->show();
 
   <body>
       <style media="screen">
+      body{
+        padding-left:30px;
+        padding-right:30px;
+      }
+      form{
+        display:flex;
+        flex-direction:column;
+      }
       .product{
         background-color: #1abc9c;
         display:flex;
@@ -107,10 +113,11 @@ $db->show();
         
       }
       </style>
+      
       <form action="showproduct.php" method="post">
       <div class="product">
         <h1>Products</h1>
-        <form action="/addproduct.php"> <button type="submit"><h3>Add Product Page</h3></button></form>
+        
         <h2>Mass Delete Action</h2>
         <button id="delete" class="button" type="submit" name="button">Apply</button>
 
@@ -138,6 +145,7 @@ $db->show();
 
       
     </form>
+    <form action="./addproduct.php" method="get"> <button type="submit"><h3>Add Product Page</h3></button></form>
       <script>
 
 
